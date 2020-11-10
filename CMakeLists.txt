@@ -34,3 +34,21 @@ install(FILES
           "${CMAKE_CURRENT_BINARY_DIR}/MathFunctionsConfigVersion.cmake"
         DESTINATION lib/cmake
 )
+
+install(TARGETS MathFunctions
+        EXPORT MathFunctionsTargets
+        LIBRARY DESTINATION lib
+        ARCHIVE DESTINATION lib
+        RUNTIME DESTINATION bin
+        INCLUDES DESTINATION include
+)
+
+install(FILES MathFunctions.h DESTINATION include)
+
+install(EXPORT MathFunctionsTargets
+        FILE MathFunctionsTargets.cmake
+        NAMESPACE MathFunctions::
+        DESTINATION lib/cmake
+)
+
+
